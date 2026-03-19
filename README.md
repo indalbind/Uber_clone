@@ -1,4 +1,4 @@
-#  User Clone App (MERN + Flask Full Stack)
+#  Uber Clone App (MERN + Flask Full Stack)
 
 A full-stack user management application built using MERN and Flask, featuring secure authentication, API documentation with Swagger, and scalable architecture for real-world applications.
 
