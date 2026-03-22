@@ -10,6 +10,7 @@ const conneectToDb = require('./db/db')
 
 // require the user routes for performing the operations on the user
 const userRoutes = require('./routes/user.routes')
+const captainRoutes = require('./routes/captain.route')
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerSpec = require('./swagger');
@@ -34,5 +35,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/users', userRoutes) // for using the user routes for performing the operations on the user. when the user hit the /api/users/register endpoint then the registerUser function from the userController maii registerUser will be called.
+
+app.use('/api/captains', captainRoutes) // for using the captain routes for performing the operations on the captain. when the user hit the /api/captains/register endpoint then the registerCaptain function from the captainController maii registerCaptain will be called.
 
 module.exports = app; // app is the variable 

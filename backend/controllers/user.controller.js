@@ -19,6 +19,13 @@ module.exports.registerUser = async (req, res, next) => {
     // if every thing ok so we move forward for creating the user in the database and then we will return the token to the user for authentication.
     const { fullname, email, password } = req.body; // destructuring the request body for getting the fullname,email,password from the request body.
 
+    const isUser = await User.findOne({ email }) // for finding the user in the database by email.
+    
+    if (isUser) {
+        // mean's if there is already a user with this email then we will return the error to the user.
+        return res.status(400).json({ message: "User with this email already exists" }) // if there is already a user with this email then we will return the error to the user.
+    }
+
     const user = await userService.createUser({ 
         firstname: fullname?.firstname,
         lastname: fullname?.lastname,
